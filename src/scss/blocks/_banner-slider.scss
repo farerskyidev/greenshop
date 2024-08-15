@@ -1,0 +1,17 @@
+ .banner {
+    height: 100%;
+    background-color: transparent;
+    position: relative;
+    &__slides {
+        overflow: hidden;
+        img {
+            height: 450px;
+            width: 450px;
+            object-fit: cover;
+        }
+    } 
+    &__swiper {
+        position: absolute;
+        bottom: 0;
+    }
+ }

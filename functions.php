@@ -6,6 +6,9 @@
  *
  * @package WooCommerce
  */
+if (!defined('ECO_PREFIX')) define('ECO_PREFIX', 'eco');
+if (!defined('ECO_TEMP_PATH')) define('ECO_TEMP_PATH', get_template_directory());
+if (!defined('ECO_TEMP_URL')) define('ECO_TEMP_URL', get_template_directory_uri());
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
@@ -141,7 +144,7 @@ function woocommerce_scripts() {
 	wp_enqueue_style( 'woocommerce-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'woocommerce-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'woocommerce-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// wp_enqueue_script( 'woocommerce-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -155,27 +158,47 @@ function mytheme_woocommerce_support() {
     add_theme_support('woocommerce');
 }
 
-// Налаштування шаблонів WooCommerce
-add_filter('woocommerce_template_directory', 'mytheme_woocommerce_template_directory');
-function mytheme_woocommerce_template_directory() {
-    return get_template_directory() . '/woocommerce/';
-}
 
-// Підключення кастомних стилів для WooCommerce
+// add_filter('woocommerce_template_directory', 'mytheme_woocommerce_template_directory');
+// function mytheme_woocommerce_template_directory() {
+//     return get_template_directory() . '/woocommerce/';
+// }
+
+require_once get_theme_file_path( '/inc/init-gutenberg.php' ); 
+
+
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_woocommerce_styles');
 function mytheme_enqueue_woocommerce_styles() {
     wp_enqueue_style('mytheme-woocommerce', get_stylesheet_directory_uri() . '/woocommerce/woocommerce.css');
 }
 
 function enqueue_theme_assets() {
-    wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/dist/css/main.css');
+    wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/dist/css/style.css');
+	wp_enqueue_style('swiper-css', get_template_directory_uri() . '/dist/swiper/swiper-bundle.min.css');
+    
     
     wp_enqueue_script('jquery');
-    wp_enqueue_script('theme-script', get_template_directory_uri() . '/src/js/main.js', array('foundation-scripts'), null, true);
+	wp_enqueue_script('swiper-js', get_template_directory_uri() . '/dist/swiper/swiper-bundle.min.js', array(), null, true);
+    wp_enqueue_script('theme-script', get_template_directory_uri() . '/dist/js/main.js', array('jquery', 'foundation-js'), null, true);  
+	
 
-	wp_add_inline_script('foundation-js', 'jQuery(document).foundation();');
+	$inline_script = "
+		jQuery(document).ready(function($) {
+			var swiper = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				spaceBetween: 10,
+				loop: true,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+			});
+		});
+	";
+	wp_add_inline_script('swiper-js', $inline_script);
 }
 add_action('wp_enqueue_scripts', 'enqueue_theme_assets');
+
 
 /**
  * Implement the Custom Header feature.

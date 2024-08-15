@@ -11,7 +11,7 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<!-- <footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'woocommerce' ) ); ?>">
 				<?php
@@ -24,11 +24,12 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'woocommerce' ), 'woocommerce', '<a href="http://underscores.me/">WooCommerce</a>' );
 				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+		</div>
+	</footer> -->
+</div>
 
-<?php wp_footer(); ?>
+<?php wp_footer(); ?> 
+
 
 </body>
 </html>

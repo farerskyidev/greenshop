@@ -1,0 +1,34 @@
+@import url("https://unpkg.com/swiper/swiper-bundle.min.css");
+body {
+  background-color: white;
+}
+
+h1 span {
+  color: #46A358;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.banner {
+  height: 100%;
+  background-color: transparent;
+  position: relative;
+}
+.banner__slides {
+  overflow: hidden;
+}
+.banner__slides img {
+  height: 450px;
+  width: 450px;
+  object-fit: cover;
+}
+.banner__swiper {
+  position: absolute;
+  bottom: 0;
+}
