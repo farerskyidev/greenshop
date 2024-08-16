@@ -28,28 +28,37 @@ if (!empty($block['anchor'])) {
 }
 // Create class attribute allowing for custom "className" and "align" values.
 $className   = array( $block_name );
-$className[] = 'banner'; 
+$className[] = ''; 
 ?>
 <section class="<?php echo implode( ' ', $className ); ?>" id="<?php echo esc_attr( $id ); ?>">
-    
-
     <div class="grid-x grid-margin-x">
         <div class="cell small-12 medium-6 large-6">
-            <?php if ( ! empty( $subtitle_banner ) ) : ?>
-                <div class=""><?php echo $subtitle_banner; ?></div>
-            <?php endif ?>
+            <div class="banner__content">
+                <div>
+                    <?php if ( ! empty( $subtitle_banner ) ) : ?>
+                        <div class="letter-10"><?php echo $subtitle_banner; ?></div>
+                    <?php endif ?>
+                    <?php if ( ! empty( $title_banner ) ) : ?>
+                        <h1 class=""><?php echo $title_banner; ?></h1>
+                    <?php endif ?>
 
-            <?php if ( ! empty( $title_banner ) ) : ?>
-                <h1 class=""><?php echo $title_banner; ?></h1>
-            <?php endif ?>
-
-            <?php if ( ! empty( $text_banner ) ) : ?>
-                <div class=""><?php echo $text_banner; ?></div>
-            <?php endif ?>
+                    <?php if ( ! empty( $text_banner ) ) : ?>
+                        <div class=""><?php echo $text_banner; ?></div>
+                    <?php endif ?>
+                    <div  class="banner__button">
+                    <?php         
+                        if( $button ): 
+                            $button_url = $button['url'];
+                            $button_title = $button['title'];
+                            $button_target = $button['target'] ? $button['target'] : '_self';
+                            ?>
+                            <a class="btn" href="<?php echo esc_url( $button_url ); ?>" target="<?php echo esc_attr( $button_target ); ?>"><?php echo esc_html( $button_title ); ?></a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
         </div>
-
         <div class="cell small-12 medium-6 large-6 banner__slides">
-
             <?php if (!empty($slider_banner)) : ?>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">

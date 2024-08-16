@@ -28,16 +28,13 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'woocommerce' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="header relative">
 		<div class="grid-x grid-margin-x">
 			<div class="cell small-12 medium-6 large-6">
 				<div class="site-branding">
-					<?php
-					the_custom_logo();
-					if ( is_front_page() && is_home() ) :
-						?>
+					<?php the_custom_logo(); ?>
 						<?php
-					endif;
+					
 					$woocommerce_description = get_bloginfo( 'description', 'display' );
 					if ( $woocommerce_description || is_customize_preview() ) :
 						?>

@@ -1,0 +1,32 @@
+.footer {
+    background-color: $light-gray-color;
+    &__contacts {
+        background-color: $gradient-green;
+    }
+    &__plants {
+        img {
+            max-width: 80px;
+        }
+    }
+    &__socials {
+        list-style-type: none;
+        align-items: center;
+        display: flex;
+        column-gap: 15px;
+        img {
+            height: 16px;   
+        }
+        a {
+            justify-content: center;
+            display: flex;
+           
+            width: 16px;
+        }
+        > div {
+            border: 1px solid rgba(70, 163, 88, 0.2);
+            border-radius: 6px;
+            padding: 7px;
+        }
+    }
+} 
+

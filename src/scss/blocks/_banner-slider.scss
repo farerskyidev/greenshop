@@ -2,6 +2,7 @@
     height: 100%;
     background-color: transparent;
     position: relative;
+    background: $gradient-primary;
     &__slides {
         overflow: hidden;
         img {
@@ -13,5 +14,14 @@
     &__swiper {
         position: absolute;
         bottom: 0;
+    }
+    &__content {
+        padding-left: 40px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &__button {
+        margin-top: 45px;
     }
  }

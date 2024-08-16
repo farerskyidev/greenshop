@@ -1,0 +1,67 @@
+@use "sass:math";
+
+@import "mixins/functions";
+@import "mixins/mixins";
+
+$grid-breakpoints: (
+				xs: 0,
+				sm: 576px,
+				md: 768px,
+				lg: 992px, 
+				xl: 1200px
+);
+
+// Base custom typography style set 
+//
+// Font, letter spacing, font size
+$font-family-open-sans: 'Open Sans';
+$font-family-Inter: 'Inter', sans-serif;
+
+$letter-spacing: (5, 10, 20, 30, 50, 100, 200, 500);
+
+$font-size-from: 10; 		// Sets the font size set from
+$font-size-to: 17; 			// Sets the font size set to
+$font-size-array: (18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80); // Sets individual font size set
+
+$line-height: false;
+$line-height-from: 10; 	// Sets the line height set from
+$line-height-to: 17; 		// Sets the line height set to
+$line-height-array: (18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80); // Sets individual line height set
+
+
+// Custom Spacers
+$custom-spacers: (-10, 0, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100);
+
+
+// Base typography style
+$base-font-size: 16px; // Sets the base font size
+$base-line-height: 1.5; // Sets the base line height
+$base-font-family: $font-family-Inter; // Sets the base font family
+
+// Colors
+$primary-color: #727272; 
+$white-color: #ffffff;
+$black-color: #3D3D3D; 
+$green-color: #46A358;
+$light-gray-color: #FBFBFB;
+
+
+
+
+// $brown-color: #444546;
+// $border-gray-color: #E8E8E8;
+// $border-dark-color: #0C1F37;
+// $dark-black-color: #282828;
+
+// $gradient-primary: linear-gradient(95.84deg, #093164 -1.55%, #0E4895 -1.54%, #05254F 100%);
+
+$gradient-primary: linear-gradient(97.77deg, rgba(245, 245, 245, 0.5) -23.46%, rgba(245, 245, 245, 0.5) 107.51%);
+
+$gradient-green: rgba(70, 163, 88, 0.1);
+
+$image-overlay: linear-gradient(180deg, #13478A 36.2%, #265CA2 117.79%);
+$drop-shadow: 0px 4px 17px rgba(17, 61, 118, 0.1);
+
+
+
+

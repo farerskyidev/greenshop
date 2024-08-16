@@ -16,6 +16,13 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 /**
+ * ACF Options page support
+ */
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();	
+}
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -183,7 +190,7 @@ function enqueue_theme_assets() {
 	
 
 	$inline_script = "
-		jQuery(document).ready(function($) {
+		jQuery(document).ready(function($) { 
 			var swiper = new Swiper('.swiper-container', {
 				slidesPerView: 1,
 				spaceBetween: 10,
